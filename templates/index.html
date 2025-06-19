@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section" id="home">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>
+        Hi, I'm <span class="typewriter" id="typing"></span>
+      </h1>
+      <div class="marquee-container">
+        <div class="marquee-text">
+          AI Enthusiast &nbsp; | &nbsp; Web Developer &nbsp; | &nbsp; Python Developer
+        </div>
+      </div>
+
+      <p class="description">
+        Passionate about building smart solutions with Python and web technologies. Currently pursuing B.Tech in AI at Sri Vasavi Engineering College.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="{{ url_for('static', filename='Pavani_Resume.pdf') }}" class="btn-secondary" download>Download Resume</a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/Pavani-Vaishnavi2912" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/pavani-vaishnavi-gudimella-889b2a2a4/" target="_blank">LinkedIn</a>
+      </div>
+
+      <a href="#skills" class="scroll-down"> Know More...</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Pavani Vaishnavi">
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <h2>My Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>Student Feedback System</h3>
+      <p>Developed with Flask and MySQL. Collects and analyzes student feedback in real-time.</p>
+      <a href="https://github.com/your-github/student-feedback" target="_blank">GitHub Repo</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>Personal portfolio built with Flask, styled using custom CSS and animated interactions.</p>
+      <a href="#">Live Demo</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Power BI Dashboard</h3>
+      <p>Created an interactive sales dashboard with slicers, KPIs, and charts in Power BI.</p>
+      <a href="#">View Screenshot</a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

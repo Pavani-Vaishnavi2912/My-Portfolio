@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavani Vaishnavi | Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .typewriter {
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #f39c12;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .typewriter:hover {
+      animation: none !important;
+      border-right: none;
+      color: #f39c12;
+    }
+
+    .sub-roles {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: #555;
+      animation: fadeSlide 2s ease-in-out infinite;
+      text-align: left;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(10px); }
+      50% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .hero-text h1 {
+      margin-bottom: 0;
+    }
+
+    .navbar .logo {
+      display: none; /* hide top left name */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+      <div class="nav-logo">
+    <a href="/" class="brand-name">Gudimella Pavani Vaishnavi</a>
+  </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/skills">Skills</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/certifications">Certifications</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+<footer>
+  <p>
+    &copy; 2025 <strong>Pavani Vaishnavi</strong> |
+    <a href="/contact" class="footer-link">Contact Me</a>
+  </p>
+</footer>
+
+
+  <script>
+    const typingElement = document.getElementById("typing");
+    const phrases = ["Pavani Vaishnavi"];
+    let currentPhrase = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex <= phrases[currentPhrase].length) {
+        typingElement.innerHTML = phrases[currentPhrase].slice(0, charIndex++);
+        setTimeout(type, 150);
+      } else {
+        setTimeout(erase, 1000);
+      }
+    }
+
+    function erase() {
+      if (charIndex >= 0) {
+        typingElement.innerHTML = phrases[currentPhrase].slice(0, charIndex--);
+        setTimeout(erase, 75);
+      } else {
+        setTimeout(type, 300);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      type();
+
+      const roles = ["AI Enthusiast", "Web Developer", "Python Developer"];
+      let roleIndex = 0;
+      const roleText = document.getElementById("role-text");
+if (roleText) {
+  setInterval(() => {
+    roleText.innerText = roles[roleIndex];
+    roleIndex = (roleIndex + 1) % roles.length;
+  }, 2000);
+}
+});
+  </script>
+</body>
+</html>
