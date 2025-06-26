@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pavani Vaishnavi | Portfolio</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico.png') }}" type="image/x-icon">
+
   <style>
     .typewriter {
       font-weight: bold;
       font-size: 2.5rem;
       color: #f39c12;
-      border-right: 2px solid orange;
       white-space: nowrap;
       overflow: hidden;
       display: inline-block;
@@ -41,73 +42,131 @@
     }
 
     .navbar .logo {
-      display: none; /* hide top left name */
+      display: none;
     }
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar">
-      <div class="nav-logo">
-    <a href="/" class="brand-name">Gudimella Pavani Vaishnavi</a>
-  </div>
+    <div class="nav-logo">
+      <a href="/" class="brand-name">Pavani Vaishnavi Gudimella</a>
+    </div>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/skills">Skills</a></li>
       <li><a href="/projects">Projects</a></li>
       <li><a href="/certifications">Certifications</a></li>
+      <li><a href="/activities">Activities</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- Content Block -->
   <main>
     {% block content %}{% endblock %}
   </main>
 
-<footer>
-  <p>
-    &copy; 2025 <strong>Pavani Vaishnavi</strong> |
-    <a href="/contact" class="footer-link">Contact Me</a>
-  </p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2025 <strong>Pavani Vaishnavi</strong> |
+      <a href="/contact" class="footer-link">Contact Me</a>
+    </p>
+  </footer>
 
+  <!-- Lightbox Overlay -->
+  <div id="lightbox-overlay" style="display:none;">
+    <img id="lightbox-img" src="" alt="Full View" />
+  </div>
 
+  <!-- Typing Script -->
   <script>
     const typingElement = document.getElementById("typing");
-    const phrases = ["Pavani Vaishnavi"];
-    let currentPhrase = 0;
-    let charIndex = 0;
+    const fullText = "Pavani Vaishnavi";
+    let index = 0;
+    let typing = true;
 
-    function type() {
-      if (charIndex <= phrases[currentPhrase].length) {
-        typingElement.innerHTML = phrases[currentPhrase].slice(0, charIndex++);
-        setTimeout(type, 150);
+    function typeWriter() {
+      if (typing) {
+        if (index <= fullText.length) {
+          typingElement.textContent = fullText.slice(0, index);
+          index++;
+          setTimeout(typeWriter, 150);
+        } else {
+          typing = false;
+          setTimeout(typeWriter, 1500);
+        }
       } else {
-        setTimeout(erase, 1000);
-      }
-    }
-
-    function erase() {
-      if (charIndex >= 0) {
-        typingElement.innerHTML = phrases[currentPhrase].slice(0, charIndex--);
-        setTimeout(erase, 75);
-      } else {
-        setTimeout(type, 300);
+        if (index >= 0) {
+          typingElement.textContent = fullText.slice(0, index);
+          index--;
+          setTimeout(typeWriter, 80);
+        } else {
+          typing = true;
+          setTimeout(typeWriter, 500);
+        }
       }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      type();
+      typeWriter();
 
       const roles = ["AI Enthusiast", "Web Developer", "Python Developer"];
       let roleIndex = 0;
       const roleText = document.getElementById("role-text");
-if (roleText) {
-  setInterval(() => {
-    roleText.innerText = roles[roleIndex];
-    roleIndex = (roleIndex + 1) % roles.length;
-  }, 2000);
-}
-});
+      if (roleText) {
+        setInterval(() => {
+          roleText.innerText = roles[roleIndex];
+          roleIndex = (roleIndex + 1) % roles.length;
+        }, 2000);
+      }
+
+      // Lightbox Script
+      const overlay = document.getElementById('lightbox-overlay');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const images = document.querySelectorAll('.clickable-image img');
+
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          overlay.style.display = 'flex';
+        });
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    });
   </script>
+
+  <!-- Lightbox Styling -->
+  <style>
+    #lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+  </style>
+
 </body>
 </html>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="extra-section">
+  <h2 class="section-title">Extra-Curricular Activities</h2>
+  <div class="section-divider"></div>
+
+  <ul class="extra-list">
+
+    <!-- 1. Event Coordinator -->
+    <li>
+      🎯 Technical Events Coordinator – SPECTRA 2024 & Tech Euphoria 2025 College Fests  
+      <div class="cert-links">
+        <a href="{{ url_for('static', filename='certificates/spectra.pdf') }}" target="_blank" class="cert-btn">📄 View SPECTRA Certificate</a>
+        <a href="{{ url_for('static', filename='certificates/euphoria.pdf') }}" target="_blank" class="cert-btn">📄 View EUPHORIA Certificate</a>
+      </div>
+    </li>
+
+    <!-- 2. Hackathon -->
+    <li>
+      💻 Organized department-level hackathons to promote problem-solving skills
+      <div class="activity-gallery">
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/hackathon/hack1.jpg') }}" alt="Hackathon Photo 1">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/hackathon/hack2.jpg') }}" alt="Hackathon Photo 2">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/hackathon/hack3.jpg') }}" alt="Hackathon Photo 3">
+        </div>
+      </div>
+    </li>
+
+    <!-- 3. Maitri Club -->
+    <li>
+      🤝 Maitri Club Lead – Coordinated community service initiatives in the department
+      <div class="activity-gallery">
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/maitri/maitri1.jpg') }}" alt="Maitri Activity 1">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/maitri/maitri2.jpg') }}" alt="Maitri Activity 2">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/maitri/maitri3.jpg') }}" alt="Maitri Activity 3">
+        </div>
+      </div>
+    </li>
+
+    <!-- 4. Career Guidance -->
+    <li>
+      🎓 Career Guidance Mentor – Counseled secondary school students on career paths
+      <div class="activity-gallery">
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/guidance/guidance1.jpg') }}" alt="Career Guidance 1">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/guidance/guidance2.jpg') }}" alt="Career Guidance 2">
+        </div>
+        <div class="clickable-image">
+          <img src="{{ url_for('static', filename='images/guidance/guidance3.jpg') }}" alt="Career Guidance 3">
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+{% endblock %}
