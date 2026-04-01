@@ -22,6 +22,11 @@ def certifications():
 def contact():
     return render_template('contact.html')
 
+@app.route('/experience')
+def experience():
+    return render_template('experience.html')
+
+
 @app.route("/activities")
 def activities():
     return render_template("activities.html")

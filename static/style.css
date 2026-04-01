@@ -688,3 +688,9 @@ footer a.footer-link:hover {
   display: none;
   cursor: zoom-out;
 }
+
+.project-card h3 img {
+  height: 40px;
+  margin-right: 8px;
+  vertical-align: middle;
+}

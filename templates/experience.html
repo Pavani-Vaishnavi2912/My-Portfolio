@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="experience" class="projects-section">
+  <h2 class="section-title">Work Experience</h2>
+  <p class="section-subtitle">Professional roles and internships.</p>
+  <div class="section-divider"></div>
+
+  <div class="projects-grid">
+   <div class="project-card">
+  <h3>
+    <img src="{{ url_for('static', filename='icons/wipro.png') }}" alt="Wipro Logo" style="height:40px; vertical-align:middle; margin-right:10px;">
+    AI Intern – Wipro
+  </h3>
+  <p><strong>2026 – Present</strong></p>
+  <p>
+    Hands-on experience in Agentic AI systems, intelligent automation, and AI-driven applications.
+  </p>
+  <ul>
+    <li>📊 Built a data-driven future prediction model with dashboards.</li>
+    <li>⚙️ Developed a resource recommendation system for VM optimization.</li>
+    <li>🗂️ Created an Agentic AI file management system for unstructured files.</li>
+    <li>🤖 Designed an AI-powered Hyderabad travel planning chatbot.</li>
+  </ul>
+</div>
+
+  </div>
+</section>
+
+{% endblock %}
